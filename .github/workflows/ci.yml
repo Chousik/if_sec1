@@ -59,15 +59,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/dependency-check
-          key: dependency-check-${{ runner.os }}-${{ steps.nvd-cache-key.outputs.week }}
+          key: dependency-check-12.2.2-${{ runner.os }}-${{ steps.nvd-cache-key.outputs.week }}
           restore-keys: |
-            dependency-check-${{ runner.os }}-
+            dependency-check-12.2.2-${{ runner.os }}-
 
       - name: Run OWASP Dependency-Check
         env:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: |
-          ./mvnw -B org.owasp:dependency-check-maven:12.1.6:check \
+          ./mvnw -B org.owasp:dependency-check-maven:12.2.2:check \
             -DdataDirectory="$HOME/.cache/dependency-check" \
             -DnvdApiKeyEnvironmentVariable=NVD_API_KEY \
             -Dformat=HTML \
