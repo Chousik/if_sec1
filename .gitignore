@@ -1,0 +1,6 @@
+.idea/
+.codebase-memory/
+.env
+.DS_Store
+target/
+dependency-check-data/

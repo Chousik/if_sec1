@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: infosec-1
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:infosec}
+    username: ${POSTGRES_USER:infosec}
+    password: ${POSTGRES_PASSWORD:infosec}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration-ms: ${JWT_EXPIRATION_MS:3600000}
+
+app:
+  initial-user:
+    login: ${APP_USER:student}
+    password: ${APP_PASSWORD}
