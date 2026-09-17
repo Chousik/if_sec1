@@ -51,19 +51,27 @@ jobs:
           java-version: "17"
           cache: maven
 
+      - name: Generate NVD cache key
+        id: nvd-cache-key
+        run: echo "week=$(date +'%G-%V')" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Dependency-Check database
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/dependency-check
+          key: dependency-check-${{ runner.os }}-${{ steps.nvd-cache-key.outputs.week }}
+          restore-keys: |
+            dependency-check-${{ runner.os }}-
+
       - name: Run OWASP Dependency-Check
         env:
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: |
-          if [ -n "$NVD_API_KEY" ]; then
-            NVD_ARGUMENT="-DnvdApiKey=$NVD_API_KEY"
-          else
-            NVD_ARGUMENT=""
-          fi
           ./mvnw -B org.owasp:dependency-check-maven:12.1.6:check \
+            -DdataDirectory="$HOME/.cache/dependency-check" \
+            -DnvdApiKeyEnvironmentVariable=NVD_API_KEY \
             -Dformat=HTML \
-            -DfailBuildOnCVSS=7 \
-            $NVD_ARGUMENT
+            -DfailBuildOnCVSS=7
 
       - name: Upload Dependency-Check reports
         if: always()
