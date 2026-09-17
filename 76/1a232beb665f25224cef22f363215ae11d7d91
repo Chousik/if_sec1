@@ -1,0 +1,21 @@
+.github/workflows/ci.yml
+  s_8bce420bc2410d::t_43175f8e1d72c6 62,64,70
+pom.xml
+  s_8bce420bc2410d::t_43175f8e1d72c6 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "761a232beb665f25224cef22f363215ae11d7d91",
+  "prompts": {},
+  "sessions": {
+    "s_8bce420bc2410d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0adec-62c4-7403-9929-f456886ba69c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Zahar Silev <chousik@mts.ru>"
+    }
+  }
+}
