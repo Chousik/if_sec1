@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    env:
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Prepare JWT secret
+        shell: bash
+        run: |
+          if [ -z "$JWT_SECRET" ]; then
+            echo "JWT_SECRET=$(openssl rand -base64 32)" >> "$GITHUB_ENV"
+          fi
+
+      - name: Build
+        run: ./mvnw -B verify
+
+      - name: SAST (SpotBugs)
+        run: >-
+          ./mvnw -B
+          com.github.spotbugs:spotbugs-maven-plugin:4.9.6.0:check
+          -DskipTests
+
+      - name: Generate NVD cache key
+        id: nvd-cache-key
+        run: echo "week=$(date +'%G-%V')" >> "$GITHUB_OUTPUT"
+
+      - name: Cache OWASP Dependency-Check database
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/dependency-check
+          key: dependency-check-12.2.2-${{ runner.os }}-${{ steps.nvd-cache-key.outputs.week }}
+          restore-keys: |
+            dependency-check-12.2.2-${{ runner.os }}-
+
+      - name: SCA (OWASP Dependency-Check)
+        run: |
+          ./mvnw -B org.owasp:dependency-check-maven:12.2.2:check \
+            -DdataDirectory="$HOME/.cache/dependency-check" \
+            -DnvdApiKeyEnvironmentVariable=NVD_API_KEY 
+
+      - name: Upload SCA report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: dependency-check-report
+          path: target/dependency-check-report.html
+          if-no-files-found: warn
