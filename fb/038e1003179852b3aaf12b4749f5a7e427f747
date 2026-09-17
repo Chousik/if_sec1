@@ -1,0 +1,43 @@
+README.md
+  s_8bce420bc2410d::t_af6de9fc363f60 14
+  s_8bce420bc2410d::t_6db4402a59bad1 157-160
+  s_8bce420bc2410d::t_a793125d41056a 11-13
+  s_8bce420bc2410d::t_27f66a30c64f20 15-17,154-156
+  s_8bce420bc2410d::t_9bed803b8392a6 161-163
+.github/workflows/ci.yml
+  s_8bce420bc2410d::t_af6de9fc363f60 12-29,63-73
+  s_8bce420bc2410d::t_45377408b8d090 30
+  s_8bce420bc2410d::t_f64260bb1eda0d 9-11
+  s_8bce420bc2410d::t_a1d8c31eb6440f 31-33,60-62
+  s_8bce420bc2410d::t_46b39fe1fcb6f1 74
+src/main/java/org/chousik/infosec_1/controller/DataController.java
+  s_8bce420bc2410d::t_ed21140a5ec7fb 25
+  s_8bce420bc2410d::t_b07165d961caf8 22-24
+  s_8bce420bc2410d::t_39ac084d7664fd 26-28
+.gitignore
+  s_a38d1d3b61a82f::t_3b8fadec621e8f 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "fb038e1003179852b3aaf12b4749f5a7e427f747",
+  "prompts": {},
+  "sessions": {
+    "s_8bce420bc2410d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0adec-62c4-7403-9929-f456886ba69c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Zahar Silev <chousik@mts.ru>"
+    },
+    "s_a38d1d3b61a82f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0adec-62f1-7502-81a9-5393f499a81d",
+        "model": "unknown"
+      },
+      "human_author": "Zahar Silev <chousik@mts.ru>"
+    }
+  }
+}
