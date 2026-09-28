@@ -1,0 +1,21 @@
+pom.xml
+  s_8bce420bc2410d::t_177d8d1f696b96 10
+  s_8bce420bc2410d::t_48104c38859da5 26
+  s_8bce420bc2410d::t_552e5a60c81125 23-25,27-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "3537d9050a77b1c5df80e8c2da5036bae6171840",
+  "prompts": {},
+  "sessions": {
+    "s_8bce420bc2410d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0adec-62c4-7403-9929-f456886ba69c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Zahar Silev <chousik@mts.ru>"
+    }
+  }
+}
