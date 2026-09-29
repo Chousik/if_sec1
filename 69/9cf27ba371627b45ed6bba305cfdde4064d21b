@@ -1,0 +1,14 @@
+.github/workflows/ci.yml
+  h_57ec2d7b28ae8a 82-84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "699cf27ba371627b45ed6bba305cfdde4064d21b",
+  "prompts": {},
+  "humans": {
+    "h_57ec2d7b28ae8a": {
+      "author": "Zahar Silev <chousik@mts.ru>"
+    }
+  }
+}
