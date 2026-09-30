@@ -1,0 +1,23 @@
+README.md
+  s_8bce420bc2410d::t_0e2bf4e2362002 136,138,140,142
+  s_8bce420bc2410d::t_1df8aa3a58c40b 20,22-23,25,33,41-43,45-47,54,56-59,61-63,65-76,85,94-100,107-113
+  s_8bce420bc2410d::t_d72cbe6d3ffcec 60
+  s_8bce420bc2410d::t_432d546f8f17bb 64
+  s_8bce420bc2410d::t_140977b91d2a97 133-135
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "0ee705a79a2051e8a59dcf02544397f1595e893d",
+  "prompts": {},
+  "sessions": {
+    "s_8bce420bc2410d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0adec-62c4-7403-9929-f456886ba69c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Zahar Silev <chousik@mts.ru>"
+    }
+  }
+}
